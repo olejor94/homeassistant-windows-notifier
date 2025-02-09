@@ -1,0 +1,11 @@
+{
+ "name": "Windows Notifier",
+ "version": "1.0",
+ "slug": "win_notifier",
+ "description": "Sends notifications using Windows 10 Toast",
+ "arch": ["armhf", "armv7", "aarch64"],
+ "startup": "application",
+ "boot": "auto",
+ "options": {},
+ "schema": {}
+}

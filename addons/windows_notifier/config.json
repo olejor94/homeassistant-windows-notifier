@@ -2,11 +2,15 @@
   "name": "Windows Notifier",
   "version": "1.0.0",
   "slug": "windows_notifier",
-  "description": "Send notifications to Windows from Home Assistant",
-  "arch": ["amd64", "armv7", "aarch64"],
+  "description": "Sends notifications to Windows via HTTP",
   "startup": "application",
   "boot": "auto",
-  "options": {},
-  "schema": {},
-  "ports": { "5000/tcp": 5000 }
+  "arch": ["aarch64", "armv7", "amd64"],
+  "options": {
+    "server_port": 5000
+  },
+  "schema": {
+    "server_port": "int"
+  },
+  "image": "ghcr.io/olejor94/windows-notifier-{arch}"
 }

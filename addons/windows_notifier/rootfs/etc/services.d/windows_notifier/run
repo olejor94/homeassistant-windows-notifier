@@ -1,4 +1,0 @@
-#!/usr/bin/with-contenv bash
-echo "Starting Windows Notifier service..."
-exec /run.sh
-chmod +x rootfs/etc/services.d/windows_notifier/run

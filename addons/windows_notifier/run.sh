@@ -1,4 +1,3 @@
 #!/bin/bash
-chmod +x run.sh
-pip3 install flask
-python3 /server.py
+echo "Starting Windows Notifier..."
+python3 /usr/src/app/notifier.py

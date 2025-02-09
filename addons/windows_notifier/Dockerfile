@@ -19,16 +19,14 @@ RUN apk add --no-cache \
 # Set work directory
 WORKDIR /usr/src/app
 
-# Copy necessary files
+# Copy requirements.txt
 COPY requirements.txt ./
-COPY notifier.py ./
-COPY run.sh /run.sh
 
 # Install Python dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Make the script executable
-RUN chmod +x /run.sh
+# Copy script
+COPY notifier.py ./
 
 # Run script
-CMD ["/run.sh"]
+CMD ["python3", "/usr/src/app/notifier.py"]

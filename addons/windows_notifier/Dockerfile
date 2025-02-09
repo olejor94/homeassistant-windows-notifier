@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/aarch64-base:latest  # Eller armv7 hvis du bruker 32-bit
+ARG BUILD_FROM=ghcr.io/home-assistant/aarch64-base:latest
 ARG BUILD_VERSION
 
 FROM ${BUILD_FROM}
@@ -6,23 +6,29 @@ FROM ${BUILD_FROM}
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Copy root filesystem
-COPY rootfs /
+# Install dependencies
+RUN apk add --no-cache \
+    python3 \
+    py3-pip \
+    gcc \
+    musl-dev \
+    python3-dev \
+    libffi-dev \
+    openssl-dev
 
 # Set work directory
 WORKDIR /usr/src/app
 
-# Install dependencies
-RUN apk add --no-cache \
-    python3 \
-    py3-pip
-
-# Install required Python packages
+# Copy necessary files
 COPY requirements.txt ./
+COPY notifier.py ./
+COPY run.sh /run.sh
+
+# Install Python dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Expose ports if needed
-EXPOSE 5000
+# Make the script executable
+RUN chmod +x /run.sh
 
-# Run s6-overlay init
-ENTRYPOINT ["/init"]
+# Run script
+CMD ["/run.sh"]

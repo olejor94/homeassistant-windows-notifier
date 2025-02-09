@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv bash
+echo "Starting Windows Notifier..."
+exec python3 /usr/src/app/server.py
+chmod +x addons/windows_notifier/rootfs/etc/services.d/windows_notifier/run

@@ -1,0 +1,12 @@
+{
+  "name": "Windows Notifier",
+  "version": "1.0.0",
+  "slug": "windows_notifier",
+  "description": "Send notifications to Windows from Home Assistant",
+  "arch": ["amd64", "armv7", "arm64"],
+  "startup": "application",
+  "boot": "auto",
+  "options": {},
+  "schema": {},
+  "ports": { "5000/tcp": 5000 }
+}

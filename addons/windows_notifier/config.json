@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "slug": "windows_notifier",
   "description": "Send notifications to Windows from Home Assistant",
-  "arch": ["amd64", "armv7", "arm64"],
+  "arch": ["amd64", "armv7", "aarch64"],
   "startup": "application",
   "boot": "auto",
   "options": {},
